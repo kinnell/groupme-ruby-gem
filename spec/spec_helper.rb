@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-SimpleCov.start
-
 require 'coveralls'
+
+SimpleCov.start
 Coveralls.wear!
 
 require 'bundler/setup'
