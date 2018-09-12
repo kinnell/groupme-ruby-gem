@@ -1,6 +1,6 @@
 # GroupMe Ruby Gem
 
-A Ruby wrapper for the GroupMe REST APIs
+A Ruby wrapper for GroupMe REST API (v3)
 
 ## Installation
 
