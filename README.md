@@ -1,4 +1,5 @@
 # GroupMe Ruby Gem
+[![Build Status](https://travis-ci.org/kinnell/groupme-ruby-gem.svg?branch=master)](https://travis-ci.org/kinnell/groupme-ruby-gem)
 
 A Ruby wrapper for GroupMe REST API (v3)
 
