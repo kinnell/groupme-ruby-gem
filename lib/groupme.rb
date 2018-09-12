@@ -1,5 +1,6 @@
-require "groupme/version"
+# frozen_string_literal: true
 
-module Groupme
-  # Your code goes here...
+require 'groupme/version'
+
+module GroupMe
 end
