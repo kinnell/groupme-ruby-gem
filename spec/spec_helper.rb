@@ -10,6 +10,7 @@ WebMock.enable!
 
 require 'bundler/setup'
 require 'groupme'
+require 'support/fake_groupme'
 
 RSpec.configure do |config|
   include WebMock::API
@@ -19,5 +20,9 @@ RSpec.configure do |config|
 
   config.expect_with :rspec do |c|
     c.syntax = :expect
+  end
+
+  config.before(:each) do
+    stub_request(:any, /api.groupme.com/).to_rack(FakeGroupMe)
   end
 end
