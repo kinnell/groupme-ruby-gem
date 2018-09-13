@@ -13,7 +13,7 @@ module GroupMe
     yield(configuration)
   end
 
-  def self.reset
+  def self.reset!
     @configuration = Configuration.new
   end
 end
