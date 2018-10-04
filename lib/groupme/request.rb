@@ -11,17 +11,11 @@ module GroupMe
       raise UnacceptableRequestMethodError unless ACCEPTABLE_METHODS.include?(method)
       @method = method
       @path   = path
-      @opts   = opts.merge(auth_params)
+      @opts   = opts
     end
 
     def full_uri
       "#{API_BASE_URI}/#{@path}"
-    end
-
-    private
-
-    def auth_params
-      { token: GroupMe.configuration.access_token }
     end
   end
 

@@ -21,8 +21,8 @@ RSpec.describe GroupMe::Request do
         expect(request.path).to eq('')
       end
 
-      it 'should have the API token as the only opt' do
-        expect(request.opts).to eq({ token: random_access_token })
+      it 'should have an empty Hash as opts' do
+        expect(request.opts).to eq(Hash.new)
       end
     end
 
@@ -31,6 +31,7 @@ RSpec.describe GroupMe::Request do
         expect { GroupMe::Request.new(:patch) }.to raise_error(GroupMe::UnacceptableRequestMethodError)
       end
     end
+  end
 
   describe '#method' do
     let(:request) { GroupMe::Request.new(:delete, 'groups', per_page: 100) }
@@ -52,6 +53,7 @@ RSpec.describe GroupMe::Request do
     let(:request) { GroupMe::Request.new(:delete, 'groups', per_page: 100) }
 
     it 'should be able to retrieve the opts' do
+      expect(request.opts).to eq({ per_page: 100 })
     end
   end
 
