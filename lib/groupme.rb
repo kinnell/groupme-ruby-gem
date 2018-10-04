@@ -10,7 +10,9 @@ module GroupMe
   CLIENT = HTTPClient.new(base_url: API_BASE_URL, default_header: { 'Content-Type' => 'application/json' })
 
   class << self
-    attr_accessor :configuration
+    def configuration
+      @configuration ||= Configuration.new
+    end
   end
 
   def self.configure

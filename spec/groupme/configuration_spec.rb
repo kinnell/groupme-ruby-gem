@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe GroupMe::Configuration do
-  before(:each) { GroupMe.reset! }
+  after(:each) { GroupMe.reset! }
 
   it 'should return nil if an access_token is not set' do
     expect(GroupMe.configuration.access_token).to eq(nil)
