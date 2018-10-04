@@ -57,10 +57,11 @@ RSpec.describe GroupMe::Request do
     end
   end
 
-    it 'should be able to generate a full uri' do
-      request = GroupMe::Request.new(:get, 'groups')
-      base_uri = GroupMe::Request::API_BASE_URI
+  describe '#full_uri' do
+    let(:request)  { GroupMe::Request.new(:get, 'groups') }
+    let(:base_uri) { GroupMe::Request::API_BASE_URI }
 
+    it 'should be able to build & return a full uri' do
       expect(request.full_uri).to eq("#{base_uri}/groups")
     end
   end
