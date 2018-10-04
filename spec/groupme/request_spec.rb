@@ -32,6 +32,29 @@ RSpec.describe GroupMe::Request do
       end
     end
 
+  describe '#method' do
+    let(:request) { GroupMe::Request.new(:delete, 'groups', per_page: 100) }
+
+    it 'should be able to retrieve the method' do
+      expect(request.method).to eq(:delete)
+    end
+  end
+
+  describe '#path' do
+    let(:request) { GroupMe::Request.new(:delete, 'groups', per_page: 100) }
+
+    it 'should be able to retrieve the path' do
+      expect(request.path).to eq('groups')
+    end
+  end
+
+  describe '#opts' do
+    let(:request) { GroupMe::Request.new(:delete, 'groups', per_page: 100) }
+
+    it 'should be able to retrieve the opts' do
+    end
+  end
+
     it 'should be able to generate a full uri' do
       request = GroupMe::Request.new(:get, 'groups')
       base_uri = GroupMe::Request::API_BASE_URI
