@@ -17,6 +17,10 @@ module GroupMe
     def full_uri
       "#{API_BASE_URI}/#{@path}"
     end
+
+    def token
+      @token = @opts[:token] || GroupMe.configuration.access_token
+    end
   end
 
   class UnacceptableRequestMethodError < StandardError; end

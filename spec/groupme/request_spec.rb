@@ -65,4 +65,23 @@ RSpec.describe GroupMe::Request do
       expect(request.full_uri).to eq("#{base_uri}/groups")
     end
   end
+
+  describe '#token' do
+    context 'no token is specified in opts' do
+      let(:request)  { GroupMe::Request.new(:get, 'groups') }
+
+      it 'should use the configured token' do
+        expect(request.token).to eq(random_access_token)
+      end
+    end
+
+    context 'a different token is specified in opts' do
+      let(:new_access_token) { 'LVCxsDxUsYFJuGRLNYbrkcufvavJZEgzRQkkUOUt' }
+      let(:request)  { GroupMe::Request.new(:get, 'groups', token: new_access_token) }
+
+      it 'should use the new token' do
+        expect(request.token).to eq(new_access_token)
+      end
+    end
+  end
 end
