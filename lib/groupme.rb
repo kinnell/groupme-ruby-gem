@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'httpclient'
+require 'http'
 
 require 'groupme/configuration'
 require 'groupme/version'

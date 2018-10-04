@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.files        = `git ls-files`.split("\n")
   spec.require_path = 'lib'
 
-  spec.add_dependency 'httpclient', '~> 2.7'
+  spec.add_dependency 'http', '~> 3.0'
 
   spec.add_development_dependency 'bundler',     '~> 1.16'
   spec.add_development_dependency 'coveralls',   '~> 0.8'
