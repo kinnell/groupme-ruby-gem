@@ -7,7 +7,15 @@ class FakeGroupMe < Sinatra::Base
   register Sinatra::Namespace
 
   namespace '/v3' do
+    get '/groups' do
+      json_response('groups/index', 200)
+    end
+
+    get '/groups/:group_id' do
+      json_response('groups/show', 200)
+    end
   end
+
   private
 
   def json_response(fixture_path, status_code = 200)
