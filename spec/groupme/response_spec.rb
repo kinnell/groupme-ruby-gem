@@ -15,4 +15,12 @@ RSpec.describe GroupMe::Response do
       expect(response.raw).to be_an_instance_of(HTTP::Response)
     end
   end
+
+  describe '.code' do
+    let(:actual_code) { response.raw.code }
+
+    it 'should the response status code' do
+      expect(response.code).to eq(actual_code)
+    end
+  end
 end

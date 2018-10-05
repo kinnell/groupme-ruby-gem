@@ -9,5 +9,9 @@ module GroupMe
     def raw
       @response
     end
+
+    def code
+      @response.code
+    end
   end
 end
