@@ -2,9 +2,9 @@
 
 require 'http'
 
-require_relative 'groupme/configuration'
-require_relative 'groupme/request'
-require_relative 'groupme/version'
+require 'groupme/configuration'
+require 'groupme/request'
+require 'groupme/version'
 
 module GroupMe
   class << self
