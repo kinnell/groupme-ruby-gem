@@ -33,6 +33,20 @@ RSpec.describe GroupMe::Request do
     end
   end
 
+  describe '#send!' do
+    let(:request) { GroupMe::Request.new(:get, 'groups') }
+
+    it 'should not return an error' do
+      expect { request.send! }.not_to raise_error
+    end
+
+    it 'should be get back a GroupMe::Response object' do
+      response = request.send!
+
+      expect(response).to be_an_instance_of(GroupMe::Response)
+    end
+  end
+
   describe '#method' do
     let(:request) { GroupMe::Request.new(:delete, 'groups', per_page: 100) }
 

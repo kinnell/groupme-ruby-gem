@@ -15,6 +15,11 @@ module GroupMe
       @opts   = opts
     end
 
+    def send!
+      response = HTTP.request(@method, full_uri, params: full_opts)
+      Response.new(response)
+    end
+
     def full_uri
       "#{API_BASE_URI}/#{@path}"
     end
