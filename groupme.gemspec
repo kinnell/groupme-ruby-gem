@@ -7,7 +7,7 @@ require 'groupme/version'
 
 Gem::Specification.new do |spec|
   spec.platform     = Gem::Platform::RUBY
-  spec.name         = 'groupme'
+  spec.name         = 'groupme-api'
   spec.version      = GroupMe::VERSION
   spec.summary      = 'A Ruby wrapper for GroupMe REST API (v3)'
 

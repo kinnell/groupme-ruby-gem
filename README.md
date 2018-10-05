@@ -9,7 +9,7 @@ A Ruby wrapper for [GroupMe REST API (v3)](https://dev.groupme.com/docs/v3).
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'groupme'
+gem 'groupme-api'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install groupme
+    $ gem install groupme-api
 
 ## Configuration
 
