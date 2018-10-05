@@ -22,7 +22,7 @@ RSpec.describe GroupMe::Request do
       end
 
       it 'should have an empty Hash as opts' do
-        expect(request.opts).to eq(Hash.new)
+        expect(request.opts).to eq({})
       end
     end
 
