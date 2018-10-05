@@ -4,6 +4,10 @@ RSpec.describe GroupMe::Configuration do
   after(:each) { GroupMe.reset! }
 
   context 'when access token is not set' do
+    it 'should not raise an error' do
+      expect { GroupMe.configuration.access_token }.not_to raise_error
+    end
+
     it 'should return nil' do
       expect(GroupMe.configuration.access_token).to eq(nil)
     end
