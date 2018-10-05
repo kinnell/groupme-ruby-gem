@@ -66,6 +66,35 @@ RSpec.describe GroupMe::Request do
     end
   end
 
+  describe '#full_opts' do
+    let(:request) { GroupMe::Request.new(:get, 'groups', opts) }
+
+    context 'when opts are not initially set' do
+      let(:opts) { {} }
+
+      it 'should return just the token' do
+        expect(request.full_opts).to eq({ token: access_token })
+      end
+    end
+
+    context 'when opts are initially set' do
+      let(:opts) { { per_page: 100 } }
+
+      it 'should return opts & token' do
+        expect(request.full_opts).to eq({ token: access_token, per_page: 100 })
+      end
+    end
+
+    context 'when one of the opts is a new token' do
+      let(:new_access_token) { SecureRandom.base64(30) }
+      let(:opts) { { token: new_access_token, per_page: 100 } }
+
+      it 'should return opts & only the new token' do
+        expect(request.full_opts).to eq({ token: new_access_token, per_page: 100 })
+      end
+    end
+  end
+
   describe '#token' do
     context 'no token is specified in opts' do
       let(:request)  { GroupMe::Request.new(:get, 'groups') }

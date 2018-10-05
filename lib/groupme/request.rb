@@ -19,6 +19,10 @@ module GroupMe
       "#{API_BASE_URI}/#{@path}"
     end
 
+    def full_opts
+      { token: token }.merge(@opts)
+    end
+
     def token
       @token = @opts[:token] || GroupMe.configuration.access_token
     end
