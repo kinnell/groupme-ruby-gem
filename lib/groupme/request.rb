@@ -9,7 +9,7 @@ module GroupMe
 
     def initialize(method = :get, path = '', opts = {})
       raise UnacceptableRequestMethodError unless ACCEPTABLE_METHODS.include?(method)
-      
+
       @method = method
       @path   = path
       @opts   = opts
