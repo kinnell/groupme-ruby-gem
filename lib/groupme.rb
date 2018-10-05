@@ -4,6 +4,7 @@ require 'http'
 require 'json'
 
 require 'groupme/configuration'
+require 'groupme/group'
 require 'groupme/response'
 require 'groupme/request'
 require 'groupme/version'
