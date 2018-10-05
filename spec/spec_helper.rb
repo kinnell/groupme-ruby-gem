@@ -11,6 +11,7 @@ WebMock.enable!
 require 'bundler/setup'
 require 'groupme'
 require 'support/fake_groupme'
+require 'securerandom'
 
 RSpec.configure do |config|
   include WebMock::API

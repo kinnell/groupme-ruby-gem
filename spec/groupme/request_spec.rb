@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe GroupMe::Request do
-  let(:random_access_token) { 'R3EypXu5HbiA1Gcq4RpBIV7ws8kxmwb1pFpCqHxY' }
+  let(:access_token) { SecureRandom.base64(30) }
 
   before do
-    GroupMe.configure { |config| config.access_token = random_access_token }
+    GroupMe.configure { |config| config.access_token = access_token }
   end
 
   describe '.new' do
@@ -71,12 +71,12 @@ RSpec.describe GroupMe::Request do
       let(:request)  { GroupMe::Request.new(:get, 'groups') }
 
       it 'should use the configured token' do
-        expect(request.token).to eq(random_access_token)
+        expect(request.token).to eq(access_token)
       end
     end
 
     context 'a different token is specified in opts' do
-      let(:new_access_token) { 'LVCxsDxUsYFJuGRLNYbrkcufvavJZEgzRQkkUOUt' }
+      let(:new_access_token) { SecureRandom.base64(30) }
       let(:request)  { GroupMe::Request.new(:get, 'groups', token: new_access_token) }
 
       it 'should use the new token' do
