@@ -12,9 +12,11 @@ RSpec.describe GroupMe::Configuration do
   context 'when access token is set' do
     let(:access_token) { SecureRandom.base64(30) }
 
-    it 'should be able to set and retrieve it' do
+    before do
       GroupMe.configure { |config| config.access_token = access_token }
+    end
 
+    it 'should return it' do
       expect(GroupMe.configuration.access_token).to eq(access_token)
     end
   end
