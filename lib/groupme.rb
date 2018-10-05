@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'http'
+require 'json'
 
 require 'groupme/configuration'
 require 'groupme/response'

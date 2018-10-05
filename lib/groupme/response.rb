@@ -13,5 +13,9 @@ module GroupMe
     def code
       @response.code
     end
+
+    def body
+      JSON.parse(@response.body, symbolize_names: true).fetch(:response)
+    end
   end
 end
