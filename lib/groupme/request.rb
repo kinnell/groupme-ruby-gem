@@ -3,7 +3,7 @@
 module GroupMe
   class Request
     API_BASE_URI = 'https://api.groupme.com/v3'
-    ACCEPTABLE_METHODS = [:get, :post, :delete].freeze
+    ACCEPTABLE_METHODS = %i[get post delete].freeze
 
     attr_reader :method, :path, :opts
 
