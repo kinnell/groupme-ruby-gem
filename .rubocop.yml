@@ -1,8 +1,11 @@
 Documentation:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/LineLength:
   Enabled: false
 
-Metrics/BlockLength:
+Style/BracesAroundHashParameters:
   Enabled: false
