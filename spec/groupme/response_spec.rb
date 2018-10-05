@@ -2,7 +2,7 @@
 
 RSpec.describe GroupMe::Response do
   let(:request)  { GroupMe::Request.new(:get, 'groups') }
-  let(:response) { request.send! }
+  let(:response) { request.send }
 
   describe '#new' do
     it 'should initialize a GroupMe::Response object' do

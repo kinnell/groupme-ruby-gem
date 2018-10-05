@@ -15,7 +15,7 @@ module GroupMe
       @opts   = opts
     end
 
-    def send!
+    def send
       response = HTTP.request(@method, full_uri, params: full_opts)
       Response.new(response)
     end
