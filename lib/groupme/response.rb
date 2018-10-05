@@ -5,5 +5,9 @@ module GroupMe
     def initialize(response)
       @response = response
     end
+
+    def raw
+      @response
+    end
   end
 end

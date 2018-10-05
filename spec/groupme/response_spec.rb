@@ -9,4 +9,10 @@ RSpec.describe GroupMe::Response do
       expect(response).to be_an_instance_of(GroupMe::Response)
     end
   end
+
+  describe '.raw' do
+    it 'should return an HTTP::Response object' do
+      expect(response.raw).to be_an_instance_of(HTTP::Response)
+    end
+  end
 end
