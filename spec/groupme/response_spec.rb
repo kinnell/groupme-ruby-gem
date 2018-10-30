@@ -3,6 +3,7 @@
 RSpec.describe GroupMe::Response do
   let(:request)  { GroupMe::Request.new(:get, 'groups') }
   let(:response) { request.send }
+  include_context :groupme_configured_with_access_token
 
   describe '#new' do
     it 'should initialize a GroupMe::Response object' do

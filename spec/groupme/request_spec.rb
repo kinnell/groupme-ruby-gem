@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe GroupMe::Request do
-  let(:access_token) { SecureRandom.base64(30) }
-
-  before do
-    GroupMe.configure { |config| config.access_token = access_token }
-  end
+  include_context :groupme_configured_with_access_token
+  let(:access_token) { GroupMe.configuration.access_token }
 
   describe '.new' do
     let(:request) { GroupMe::Request.new(method, path, opts) }
