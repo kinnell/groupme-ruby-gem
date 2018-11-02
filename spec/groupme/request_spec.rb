@@ -45,15 +45,15 @@ RSpec.describe GroupMe::Request do
   end
 
   describe '#method' do
-    let(:request) { GroupMe::Request.new(:delete, 'groups', per_page: 100) }
+    let(:request) { GroupMe::Request.new(:get, 'groups', per_page: 100) }
 
     it 'should be able to retrieve the method' do
-      expect(request.method).to eq(:delete)
+      expect(request.method).to eq(:get)
     end
   end
 
   describe '#path' do
-    let(:request) { GroupMe::Request.new(:delete, 'groups', per_page: 100) }
+    let(:request) { GroupMe::Request.new(:get, 'groups', per_page: 100) }
 
     it 'should be able to retrieve the path' do
       expect(request.path).to eq('groups')
@@ -61,7 +61,7 @@ RSpec.describe GroupMe::Request do
   end
 
   describe '#opts' do
-    let(:request) { GroupMe::Request.new(:delete, 'groups', per_page: 100) }
+    let(:request) { GroupMe::Request.new(:get, 'groups', per_page: 100) }
 
     it 'should be able to retrieve the opts' do
       expect(request.opts).to eq({ per_page: 100 })
