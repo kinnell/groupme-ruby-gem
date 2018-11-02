@@ -13,10 +13,11 @@ module GroupMe
       @method = method
       @path   = path
       @opts   = opts
+      @client = HTTPClient.new(base_url: API_BASE_URI, default_header: { 'Content-Type': 'application/json' })
     end
 
     def send
-      response = HTTP.request(@method, full_uri, params: full_opts)
+      response = @client.request(@method, full_uri, query: full_opts)
       Response.new(response)
     end
 
