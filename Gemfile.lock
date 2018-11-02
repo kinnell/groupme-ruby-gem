@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     groupme-api (0.4.0)
-      http (~> 3.0)
       httpclient (~> 2.8)
 
 GEM
@@ -28,8 +27,6 @@ GEM
       safe_yaml (~> 1.0.0)
     diff-lcs (1.3)
     docile (1.3.1)
-    domain_name (0.5.20180417)
-      unf (>= 0.0.5, < 1.0.0)
     ffi (1.9.25)
     formatador (0.2.5)
     guard (2.14.2)
@@ -47,15 +44,6 @@ GEM
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
     hashdiff (0.3.7)
-    http (3.3.0)
-      addressable (~> 2.3)
-      http-cookie (~> 1.0)
-      http-form_data (~> 2.0)
-      http_parser.rb (~> 0.6.0)
-    http-cookie (1.0.3)
-      domain_name (~> 0.5)
-    http-form_data (2.1.1)
-    http_parser.rb (0.6.0)
     httpclient (2.8.3)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
@@ -126,9 +114,6 @@ GEM
     tins (1.16.3)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.5)
     webmock (3.4.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
