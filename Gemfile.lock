@@ -3,6 +3,7 @@ PATH
   specs:
     groupme-api (0.4.0)
       http (~> 3.0)
+      httpclient (~> 2.8)
 
 GEM
   remote: https://rubygems.org/
@@ -55,6 +56,7 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.1.1)
     http_parser.rb (0.6.0)
+    httpclient (2.8.3)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     json (2.1.0)
