@@ -29,7 +29,7 @@ RSpec.describe GroupMe::Response do
     let(:response_body) { response.body }
 
     context 'when response will be an array' do
-      let(:request)  { GroupMe::Request.new(:get, 'groups') }
+      let(:request) { GroupMe::Request.new(:get, 'groups') }
 
       it 'should parse the JSON response into an Array' do
         expect(response_body).to be_an_instance_of(Array)
@@ -43,7 +43,7 @@ RSpec.describe GroupMe::Response do
     end
 
     context 'when response will be an hash' do
-      let(:request)  { GroupMe::Request.new(:get, 'users/me') }
+      let(:request) { GroupMe::Request.new(:get, 'users/me') }
 
       it 'should parse the JSON response into an Hash' do
         expect(response_body).to be_an_instance_of(Hash)
@@ -54,11 +54,11 @@ RSpec.describe GroupMe::Response do
       end
 
       it 'should not have the key "response"' do
-        expect(response_body.has_key?(:response)).to eq(false)
+        expect(response_body.key?(:response)).to eq(false)
       end
 
       it 'should not have the key "meta"' do
-        expect(response_body.has_key?(:meta)).to eq(false)
+        expect(response_body.key?(:meta)).to eq(false)
       end
     end
   end
