@@ -2,6 +2,7 @@
 
 RSpec.describe GroupMe::Request do
   include_context :groupme_configured_with_access_token
+
   let(:access_token) { GroupMe.configuration.access_token }
 
   describe '.new' do
