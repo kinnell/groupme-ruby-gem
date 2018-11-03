@@ -1,0 +1,88 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.groupme.com/v3/groups?token=ACCESS_TOKEN
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      User-Agent:
+      - HTTPClient/1.0 (2.8.3, ruby 2.5.0 (2017-12-25))
+      Accept:
+      - "*/*"
+      Date:
+      - Sat, 03 Nov 2018 07:22:58 GMT
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'false'
+      Access-Control-Allow-Headers:
+      - Accept, Content-Type, X-Requested-With, X-Access-Token, User-Agent, Pragma,
+        Referrer, Cache-Control, Origin
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Max-Age:
+      - '86400'
+      Cache-Control:
+      - must-revalidate, private, max-age=0
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Sat, 03 Nov 2018 07:22:58 GMT
+      Server:
+      - nginx/1.14.0
+      X-Gm-Service:
+      - conversations
+      X-Region:
+      - aws
+      - aws
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"response":[{"id":"44835935","group_id":"44835935","name":"Gaming
+        Group","phone_number":"+1 3363554142","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722180,"updated_at":1538722180,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076097","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500},{"id":"44835934","group_id":"44835934","name":"MCU
+        Discussion Group","phone_number":"+1 5307275175","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722180,"updated_at":1538722180,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076096","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500},{"id":"44835933","group_id":"44835933","name":"Game
+        of Thrones Discussion Group","phone_number":"+1 3163134571","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722180,"updated_at":1538722180,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076095","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500},{"id":"44835932","group_id":"44835932","name":"Investing
+        Friends","phone_number":"+1 8189004848","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722180,"updated_at":1538722180,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076094","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500},{"id":"44835928","group_id":"44835928","name":"Old
+        Work Friends","phone_number":"+1 3479791179","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722107,"updated_at":1538722107,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076023","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500},{"id":"44835927","group_id":"44835927","name":"Co-Workers","phone_number":"+1
+        6097362013","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722106,"updated_at":1538722106,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076022","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500},{"id":"44835926","group_id":"44835926","name":"Vacation
+        Trip Planning","phone_number":"+1 6787458749","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722106,"updated_at":1538722106,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076021","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500},{"id":"44835925","group_id":"44835925","name":"Siblings","phone_number":"+1
+        2406000247","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722106,"updated_at":1538722106,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076020","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500},{"id":"44835924","group_id":"44835924","name":"Extended
+        Family","phone_number":"+1 6624506524","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722106,"updated_at":1538722106,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076019","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500},{"id":"44835923","group_id":"44835923","name":"Family","phone_number":"+1
+        6789207432","type":"private","description":"","image_url":null,"creator_user_id":"3193012","created_at":1538722106,"updated_at":1538722106,"office_mode":false,"share_url":null,"share_qr_code_url":null,"members":[{"user_id":"3193012","nickname":"Test
+        Account","image_url":"","id":"384076018","muted":false,"autokicked":false,"roles":["admin","owner"],"name":"Test
+        Account"}],"messages":{"count":0,"last_message_id":"","last_message_created_at":0,"preview":{"nickname":null,"text":null,"image_url":null,"attachments":[]}},"max_members":500}],"meta":{"code":200}}
+
+'
+    http_version: 
+  recorded_at: Sat, 03 Nov 2018 07:22:58 GMT
+recorded_with: VCR 4.0.0
