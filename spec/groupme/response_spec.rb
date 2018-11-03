@@ -43,7 +43,7 @@ RSpec.describe GroupMe::Response do
     end
 
     context 'when response will be an hash' do
-      let(:request)  { GroupMe::Request.new(:get, 'groups/1234567890') }
+      let(:request)  { GroupMe::Request.new(:get, 'users/me') }
 
       it 'should parse the JSON response into an Hash' do
         expect(response_body).to be_an_instance_of(Hash)
