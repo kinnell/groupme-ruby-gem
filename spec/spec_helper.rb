@@ -10,7 +10,6 @@ WebMock.enable!
 
 require 'bundler/setup'
 require 'groupme'
-require 'support/fake_groupme'
 require 'securerandom'
 
 RSpec.configure do |config|
@@ -22,7 +21,4 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.before(:each) do
-    stub_request(:any, /api.groupme.com/).to_rack(FakeGroupMe)
-  end
 end
