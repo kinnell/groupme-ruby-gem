@@ -34,13 +34,16 @@ RSpec.describe GroupMe::Request do
     let(:request) { GroupMe::Request.new(:get, 'groups') }
 
     it 'should not return an error' do
-      expect { request.send }.not_to raise_error
+      VCR.use_cassette(request.path) do
+        expect { request.send }.not_to raise_error
+      end
     end
 
     it 'should be get back a GroupMe::Response object' do
-      response = request.send
-
-      expect(response).to be_an_instance_of(GroupMe::Response)
+      VCR.use_cassette(request.path) do
+        response = request.send
+        expect(response).to be_an_instance_of(GroupMe::Response)
+      end
     end
   end
 
