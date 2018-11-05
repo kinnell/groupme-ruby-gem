@@ -19,14 +19,14 @@ RSpec.describe GroupMe::Client do
   end
 
   describe '#request' do
-    let(:sample_data) { { id: 1, name: 'Group' } }
-    let(:response_body) { { response: sample_data }.to_json }
-    let(:response_status) { 200 }
+    let(:stubbed_data) { { id: 1, name: 'Group' } }
+    let(:stubbed_response_body) { { response: stubbed_data }.to_json }
+    let(:stubbed_response_status) { 200 }
 
     before do
       stub_request(:any, /api.groupme.com/).to_return(
-        body: response_body,
-        status: response_status
+        body: stubbed_response_body,
+        status: stubbed_response_status
       )
     end
 
@@ -50,78 +50,114 @@ RSpec.describe GroupMe::Client do
       it 'should send the correct HTTP request' do
         client.request(:post, 'groups', body: { name: 'Group' })
 
-        expect(WebMock).to have_requested(:post, "#{base_url}groups?token=#{ACCESS_TOKEN}").with(body: 'name=Group')
+        expect(WebMock).to have_requested(:post, "#{base_url}groups?token=#{ACCESS_TOKEN}").with(body: { name: 'Group' }.to_json)
       end
     end
 
     context 'when response is successful' do
-      it 'should parse and return the response' do
-        response = client.request(:post, 'groups')
+      let(:stubbed_response_body) { { response: stubbed_data }.to_json }
+      let(:stubbed_response_status) { 201 }
 
-        expect(response).to eq(sample_data)
+      it 'should parse and return the response' do
+        response, _status = client.request(:post, 'groups')
+
+        expect(response).to eq(stubbed_data)
+      end
+
+      it 'should return the successful status code' do
+        _response, status = client.request(:post, 'groups')
+
+        expect(status).to eq(201)
       end
     end
 
-    context 'when response is not successful' do
-      let(:response_body) { 'Not Found' }
-      let(:response_status) { 404 }
+    context 'when response is unsuccessful' do
+      let(:stubbed_response_body) { '' }
+      let(:stubbed_response_status) { [404, 'Not Found'] }
 
-      it 'should return nil' do
-        response = client.request(:post, 'groups')
+      it 'should return the response reason' do
+        response, _status = client.request(:post, 'groups')
 
-        expect(response).to be_nil
+        expect(response).to eq('Not Found')
+      end
+
+      it 'should return the unsuccesful status code' do
+        _response, status = client.request(:post, 'groups')
+
+        expect(status).to eq(404)
       end
     end
   end
 
   describe '#get' do
-    let(:sample_data) { { id: 1, name: 'Group' } }
+    let(:stubbed_data) { { id: 1, name: 'Group' } }
+    let(:stubbed_response_code) { 200 }
 
     before do
       stub_request(:get, /api.groupme.com/).to_return(
-        body: { response: sample_data }.to_json,
-        status: 200
+        body: { response: stubbed_data }.to_json,
+        status: stubbed_response_code
       )
     end
 
     it 'should parse and return the response' do
-      response = client.get('groups', per_page: 1)
+      response, _status = client.get('groups', per_page: 1)
 
-      expect(response).to eq(sample_data)
+      expect(response).to eq(stubbed_data)
+    end
+
+    it 'should return the status code' do
+      _response, status = client.get('groups', per_page: 1)
+
+      expect(status).to eq(stubbed_response_code)
     end
   end
 
   describe '#post' do
-    let(:sample_data) { { id: 1, name: 'Group' } }
+    let(:stubbed_data) { { id: 1, name: 'Group' } }
+    let(:stubbed_response_code) { 200 }
 
     before do
       stub_request(:post, /api.groupme.com/).to_return(
-        body: { response: sample_data }.to_json,
-        status: 200
+        body: { response: stubbed_data }.to_json,
+        status: stubbed_response_code
       )
     end
 
     it 'should parse and return the response' do
-      response = client.post('groups', name: 'Group')
+      response, _status = client.post('groups', name: 'Group')
 
-      expect(response).to eq(sample_data)
+      expect(response).to eq(stubbed_data)
+    end
+
+    it 'should return the status code' do
+      _response, status = client.post('groups', name: 'Group')
+
+      expect(status).to eq(stubbed_response_code)
     end
   end
 
   describe '#delete' do
-    let(:sample_data) { 'OK' }
+    let(:stubbed_data) { 'OK' }
+    let(:stubbed_response_code) { 200 }
 
     before do
       stub_request(:delete, /api.groupme.com/).to_return(
-        body: { response: sample_data }.to_json,
-        status: 200
+        body: { response: stubbed_data }.to_json,
+        status: stubbed_response_code
       )
     end
 
     it 'should parse and return the response' do
-      response = client.delete('groups', id: 1)
+      response, _status = client.delete('groups', id: 1)
 
-      expect(response).to eq(sample_data)
+      expect(response).to eq(stubbed_data)
+    end
+
+    it 'should return the status code' do
+      _response, status = client.delete('groups', id: 1)
+
+      expect(status).to eq(stubbed_response_code)
     end
   end
 end
