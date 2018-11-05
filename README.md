@@ -25,7 +25,11 @@ Or install it yourself as:
 Get a developer access token at: https://dev.groupme.com/
 
 ```ruby
-client = GroupMe::Client.new(access_token: 'ax7snqkoRiJ0yGPsbKSgeBnBEtqeSkALMC2qJPrT')
+require 'groupme'
+
+client = GroupMe::Client.new(
+  access_token: 'ax7snqkoRiJ0yGPsbKSgeBnBEtqeSkALMC2qJPrT'
+)
 ```
 
 ## Usage
