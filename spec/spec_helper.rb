@@ -2,16 +2,15 @@
 
 require 'simplecov'
 require 'coveralls'
-require 'webmock/rspec'
 require 'vcr'
 
 SimpleCov.start
 Coveralls.wear!
-WebMock.enable!
 
 require 'bundler/setup'
 require 'groupme'
 require 'securerandom'
+require 'support/webmock'
 
 RSpec.configure do |config|
   config.filter_run_when_matching :focus
