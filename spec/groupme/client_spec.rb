@@ -17,40 +17,34 @@ RSpec.describe GroupMe::Client do
 
   describe '#request' do
     let(:client) { GroupMe::Client.new(access_token: ACCESS_TOKEN) }
+    let(:base_url) { 'https://api.groupme.com/v3/' }
 
     before do
       stub_request(:get, 'groups')
+      stub_request(:post, 'groups')
     end
 
-    context 'when there is no query params or body data' do
+    context 'when there are no parameters' do
       it 'should work' do
         client.request(:get, 'groups')
 
-        expect(WebMock).to have_requested(:get, "https://api.groupme.com/v3/groups?token=#{ACCESS_TOKEN}")
+        expect(WebMock).to have_requested(:get, "#{base_url}groups?token=#{ACCESS_TOKEN}")
       end
     end
 
-    context 'when there are query params' do
+    context 'when there are query parameters' do
       it 'should work' do
         client.request(:get, 'groups', query: { per_page: 100 })
 
-        expect(WebMock).to have_requested(:get, "https://api.groupme.com/v3/groups?token=#{ACCESS_TOKEN}&per_page=100")
+        expect(WebMock).to have_requested(:get, "#{base_url}groups?token=#{ACCESS_TOKEN}&per_page=100")
       end
     end
 
-    context 'when there is body data' do
+    context 'when there are body parameters' do
       it 'should work' do
-        client.request(:get, 'groups', body: { name: 'Group' })
+        client.request(:post, 'groups', body: { name: 'Group' })
 
-        expect(WebMock).to have_requested(:get, "https://api.groupme.com/v3/groups?token=#{ACCESS_TOKEN}").with(body: 'name=Group')
-      end
-    end
-
-    context 'when there are both query params & body data' do
-      it 'should work' do
-        client.request(:get, 'groups', query: { per_page: 100 }, body: { name: 'Group' })
-
-        expect(WebMock).to have_requested(:get, "https://api.groupme.com/v3/groups?token=#{ACCESS_TOKEN}&per_page=100").with(body: 'name=Group')
+        expect(WebMock).to have_requested(:post, "#{base_url}groups?token=#{ACCESS_TOKEN}").with(body: 'name=Group')
       end
     end
   end
