@@ -26,19 +26,8 @@ VCR.configure do |config|
   config.allow_http_connections_when_no_cassette = true
   config.cassette_library_dir = 'spec/fixtures'
   config.default_cassette_options = { record: :new_episodes }
-  config.filter_sensitive_data('ACCESS_TOKEN') { GroupMe.configuration.access_token }
+  config.filter_sensitive_data('ACCESS_TOKEN') { ACCESS_TOKEN }
 end
 
-RSpec.shared_context :groupme_configured_with_access_token do
-  before do
-    GroupMe.configure do |config|
-      config.access_token = defined?(TEST_ACCOUNT_ACCESS_TOKEN) ? TEST_ACCOUNT_ACCESS_TOKEN : 'ACCESS_TOKEN'
-    end
-  end
-end
-
-ACCESS_TOKEN = if defined?(TEST_ACCOUNT_ACCESS_TOKEN)
-  TEST_ACCOUNT_ACCESS_TOKEN
-else
-  SecureRandom.base64(30).tr('+', '0')
-end
+# TEST_ACCOUNT_ACCESS_TOKEN = ''
+ACCESS_TOKEN = defined?(TEST_ACCOUNT_ACCESS_TOKEN) ? TEST_ACCOUNT_ACCESS_TOKEN : SecureRandom.base64(30).tr('+', '0')
