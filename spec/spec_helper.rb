@@ -36,3 +36,9 @@ RSpec.shared_context :groupme_configured_with_access_token do
     end
   end
 end
+
+ACCESS_TOKEN = if defined?(TEST_ACCOUNT_ACCESS_TOKEN)
+  TEST_ACCOUNT_ACCESS_TOKEN
+else
+  SecureRandom.base64(30).tr('+', '0')
+end
