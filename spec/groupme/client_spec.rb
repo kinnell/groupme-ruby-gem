@@ -24,7 +24,7 @@ RSpec.describe GroupMe::Client do
     let(:response_status) { 200 }
 
     before do
-      stub_request(:any, /sample-path/).to_return(
+      stub_request(:any, /api.groupme.com/).to_return(
         body: response_body,
         status: response_status
       )
@@ -56,7 +56,7 @@ RSpec.describe GroupMe::Client do
 
     context 'when response is successful' do
       it 'should parse and return the response' do
-        response = client.request(:post, 'sample-path')
+        response = client.request(:post, 'groups')
 
         expect(response).to eq(sample_data)
       end
@@ -67,10 +67,14 @@ RSpec.describe GroupMe::Client do
       let(:response_status) { 404 }
 
       it 'should return nil' do
-        response = client.request(:post, 'sample-path')
+        response = client.request(:post, 'groups')
 
         expect(response).to be_nil
       end
     end
+  end
+
+  describe '#get' do
+
   end
 end
