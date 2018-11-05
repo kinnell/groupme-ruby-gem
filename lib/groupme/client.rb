@@ -11,8 +11,8 @@ module GroupMe
     end
 
     def request(method, path, query: {}, body: {})
-      response = @client.request(method, path, { token: @access_token }.merge(query), body)
-      JSON.parse(response.body, symbolize_names: true).fetch(:response) if response.ok?
+      response = @client.request(method, path, { token: @access_token }.merge(query), body.to_json)
+      [parse_response_body(response), response.status]
     end
 
     def get(path, query = {})
@@ -25,6 +25,14 @@ module GroupMe
 
     def delete(path, query = {})
       request(:delete, path, query: query)
+    end
+
+    private
+
+    def parse_response_body(response)
+      return response.reason unless response.ok?
+
+      JSON.parse(response.body, symbolize_names: true).fetch(:response)
     end
   end
 end

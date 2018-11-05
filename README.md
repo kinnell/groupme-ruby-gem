@@ -37,7 +37,7 @@ client = GroupMe::Client.new(
 #### Get All Groups
 
 ```ruby
-response = client.request(:get, 'groups')
+response, status = client.get('groups')
 puts response
 ```
 
@@ -45,6 +45,6 @@ puts response
 #### Create A Group
 
 ```ruby
-response = client.request(:post, 'groups', body: { name: 'New Group'})
+response, status = client.post('groups', name: 'New Group')
 puts response
 ```
