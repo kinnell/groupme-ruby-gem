@@ -75,6 +75,53 @@ RSpec.describe GroupMe::Client do
   end
 
   describe '#get' do
+    let(:sample_data) { { id: 1, name: 'Group' } }
 
+    before do
+      stub_request(:get, /api.groupme.com/).to_return(
+        body: { response: sample_data }.to_json,
+        status: 200
+      )
+    end
+
+    it 'should parse and return the response' do
+      response = client.get('groups', per_page: 1)
+
+      expect(response).to eq(sample_data)
+    end
+  end
+
+  describe '#post' do
+    let(:sample_data) { { id: 1, name: 'Group' } }
+
+    before do
+      stub_request(:post, /api.groupme.com/).to_return(
+        body: { response: sample_data }.to_json,
+        status: 200
+      )
+    end
+
+    it 'should parse and return the response' do
+      response = client.post('groups', name: 'Group')
+
+      expect(response).to eq(sample_data)
+    end
+  end
+
+  describe '#delete' do
+    let(:sample_data) { 'OK' }
+
+    before do
+      stub_request(:delete, /api.groupme.com/).to_return(
+        body: { response: sample_data }.to_json,
+        status: 200
+      )
+    end
+
+    it 'should parse and return the response' do
+      response = client.delete('groups', id: 1)
+
+      expect(response).to eq(sample_data)
+    end
   end
 end
