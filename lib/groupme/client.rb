@@ -11,7 +11,8 @@ module GroupMe
     end
 
     def request(method, path, query: {}, body: {})
-      @client.request(method, path, { token: @access_token }.merge(query), body)
+      response = @client.request(method, path, { token: @access_token }.merge(query), body)
+      JSON.parse(response.body, symbolize_names: true).fetch(:response) if response.ok?
     end
   end
 end
