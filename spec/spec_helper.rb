@@ -6,7 +6,6 @@ require 'coveralls'
 SimpleCov.start
 Coveralls.wear!
 
-require 'bundler/setup'
 require 'groupme'
 
 require 'support/groupme'
