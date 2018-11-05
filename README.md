@@ -25,9 +25,7 @@ Or install it yourself as:
 Get a developer access token at: https://dev.groupme.com/
 
 ```ruby
-GroupMe.configure do |config|
-    config.access_token = 'ax7snqkoRiJ0yGPsbKSgeBnBEtqeSkALMC2qJPrT'
-end
+client = GroupMe::Client.new(access_token: 'ax7snqkoRiJ0yGPsbKSgeBnBEtqeSkALMC2qJPrT')
 ```
 
 ## Usage
@@ -35,14 +33,14 @@ end
 #### Get All Groups
 
 ```ruby
-response = GroupMe::Request.new(:get, 'groups').send
-puts response.body
+response = client.request(:get, 'groups')
+puts response
 ```
 
 
 #### Create A Group
 
 ```ruby
-response = GroupMe::Request.new(:post, 'groups', name: 'Test Group').send
-puts response.body
+response = client.request(:post, 'groups', body: { name: 'New Group'})
+puts response
 ```
