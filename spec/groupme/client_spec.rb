@@ -53,5 +53,24 @@ RSpec.describe GroupMe::Client do
         expect(WebMock).to have_requested(:post, "#{base_url}groups?token=#{ACCESS_TOKEN}").with(body: 'name=Group')
       end
     end
+
+    context 'when response is successful' do
+      it 'should parse and return the response' do
+        response = client.request(:post, 'sample-path')
+
+        expect(response).to eq(sample_data)
+      end
+    end
+
+    context 'when response is not successful' do
+      let(:response_body) { 'Not Found' }
+      let(:response_status) { 404 }
+
+      it 'should return nil' do
+        response = client.request(:post, 'sample-path')
+
+        expect(response).to be_nil
+      end
+    end
   end
 end
