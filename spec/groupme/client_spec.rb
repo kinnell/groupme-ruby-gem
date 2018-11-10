@@ -1,5 +1,26 @@
 # frozen_string_literal: true
 
+RSpec.describe GroupMe do
+  include_context :with_default_groupme_configuration
+
+  describe '.client' do
+    it 'should return a Client object' do
+      expect(GroupMe.client).to be_a_instance_of(GroupMe::Client)
+    end
+  end
+
+  describe '.client=' do
+    it 'should set a new default client' do
+      old_client = GroupMe.client
+      new_client = GroupMe::Client.new(access_token: new_access_token)
+      GroupMe.client = new_client
+
+      expect(GroupMe.client).not_to eq(old_client)
+      expect(GroupMe.client).to eq(new_client)
+    end
+  end
+end
+
 RSpec.describe GroupMe::Client do
   include_context :with_default_groupme_configuration
 

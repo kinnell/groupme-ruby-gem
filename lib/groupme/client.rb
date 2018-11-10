@@ -37,4 +37,12 @@ module GroupMe
       JSON.parse(response.body, symbolize_names: true).fetch(:response)
     end
   end
+
+  def self.client
+    @client ||= Client.new
+  end
+
+  def self.client=(client)
+    @client = client
+  end
 end
