@@ -1,26 +1,5 @@
 # frozen_string_literal: true
 
-RSpec.describe GroupMe do
-  include_context :with_default_groupme_configuration
-
-  describe '.client' do
-    it 'should return a Client object' do
-      expect(GroupMe.client).to be_a_instance_of(GroupMe::Client)
-    end
-  end
-
-  describe '.client=' do
-    it 'should set a new default client' do
-      old_client = GroupMe.client
-      new_client = GroupMe::Client.new(access_token: new_access_token)
-      GroupMe.client = new_client
-
-      expect(GroupMe.client).not_to eq(old_client)
-      expect(GroupMe.client).to eq(new_client)
-    end
-  end
-end
-
 RSpec.describe GroupMe::Client do
   include_context :with_default_groupme_configuration
 
@@ -28,22 +7,22 @@ RSpec.describe GroupMe::Client do
   let(:base_url) { GroupMe::Client::API_BASE_URL }
 
   describe '.new' do
-    context 'when :access_token is not set' do
+    context 'when :access_token is not supplied' do
       let(:client) { GroupMe::Client.new }
 
-      it 'should use Configuration access_token' do
+      it 'should use configured :access_token' do
         expect(client.access_token).to eq(GroupMe.configuration.access_token)
       end
     end
 
-    context 'when :access_token is set' do
+    context 'when :access_token is supplied' do
       let(:client) { GroupMe::Client.new(access_token: new_access_token) }
 
-      it 'should not use Configuration access_token' do
+      it 'should not use configured :access_token' do
         expect(client.access_token).not_to eq(GroupMe.configuration.access_token)
       end
 
-      it 'should use access_token argument value' do
+      it 'should use the supplied :access_token' do
         expect(client.access_token).to eq(new_access_token)
       end
     end
@@ -61,7 +40,7 @@ RSpec.describe GroupMe::Client do
       )
     end
 
-    context 'when there are no parameters' do
+    context 'when no parameters are supplied' do
       it 'should send the correct HTTP request' do
         client.request(:get, 'groups')
 
@@ -69,7 +48,7 @@ RSpec.describe GroupMe::Client do
       end
     end
 
-    context 'when there are query parameters' do
+    context 'when query parameters are supplied' do
       it 'should send the correct HTTP request' do
         client.request(:get, 'groups', query: { per_page: 1 })
 
@@ -77,7 +56,7 @@ RSpec.describe GroupMe::Client do
       end
     end
 
-    context 'when there are body parameters' do
+    context 'when body parameters are supplied' do
       it 'should send the correct HTTP request' do
         client.request(:post, 'groups', body: { name: 'Group' })
 
@@ -85,7 +64,7 @@ RSpec.describe GroupMe::Client do
       end
     end
 
-    context 'when response is successful' do
+    context 'when the response is successful' do
       let(:stubbed_response_body) { { response: stubbed_data }.to_json }
       let(:stubbed_response_status) { 201 }
 
@@ -102,7 +81,7 @@ RSpec.describe GroupMe::Client do
       end
     end
 
-    context 'when response is unsuccessful' do
+    context 'when the response is unsuccessful' do
       let(:stubbed_response_body) { '' }
       let(:stubbed_response_status) { [404, 'Not Found'] }
 
@@ -189,6 +168,27 @@ RSpec.describe GroupMe::Client do
       _response, status = client.delete('groups', id: 1)
 
       expect(status).to eq(stubbed_response_code)
+    end
+  end
+end
+
+RSpec.describe GroupMe do
+  include_context :with_default_groupme_configuration
+
+  describe '.client' do
+    it 'should return a GroupMe::Client object' do
+      expect(GroupMe.client).to be_a_instance_of(GroupMe::Client)
+    end
+  end
+
+  describe '.client=' do
+    it 'should set a new default client' do
+      old_client = GroupMe.client
+      new_client = GroupMe::Client.new(access_token: new_access_token)
+      GroupMe.client = new_client
+
+      expect(GroupMe.client).not_to eq(old_client)
+      expect(GroupMe.client).to eq(new_client)
     end
   end
 end

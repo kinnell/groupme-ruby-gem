@@ -3,14 +3,16 @@
 require 'spec_helper'
 
 RSpec.describe GroupMe::Configuration do
+  before(:each) { GroupMe.reset! }
+
   describe '#access_token' do
-    context 'when access_token is not configured' do
+    context 'when :access_token is not configured' do
       it 'should raise an error' do
         expect { GroupMe.configuration.access_token }.to raise_error(GroupMe::MissingConfigurationError)
       end
     end
 
-    context 'when access_token is configured' do
+    context 'when :access_token is configured' do
       include_context :with_default_groupme_configuration
 
       it 'should return the access_token' do
@@ -22,23 +24,13 @@ end
 
 RSpec.describe GroupMe do
   describe '.configuration' do
-    context 'when configuration is not set' do
-      it 'should return a Configuration object' do
-        expect(GroupMe.configuration).to be_an_instance_of(GroupMe::Configuration)
-      end
-    end
-
-    context 'when configuration is set' do
-      include_context :with_default_groupme_configuration
-
-      it 'should return a Configuration object' do
-        expect(GroupMe.configuration).to be_an_instance_of(GroupMe::Configuration)
-      end
+    it 'should return a GroupMe::Configuration object' do
+      expect(GroupMe.configuration).to be_an_instance_of(GroupMe::Configuration)
     end
   end
 
   describe '.configuration=' do
-    it 'should set a new Configuration' do
+    it 'should set a new default configuration' do
       old_configuration = GroupMe.configuration
       new_configuration = GroupMe::Configuration.new
       GroupMe.configuration = new_configuration
@@ -57,7 +49,7 @@ RSpec.describe GroupMe do
   end
 
   describe 'reset!' do
-    it 'should replace the Configuration object with a new one' do
+    it 'should reset the configuration' do
       old_configuration = GroupMe.configuration
       GroupMe.reset!
 
