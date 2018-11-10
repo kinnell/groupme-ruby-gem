@@ -39,9 +39,11 @@ RSpec.describe GroupMe do
 
   describe '.configuration=' do
     it 'should set a new Configuration' do
+      old_configuration = GroupMe.configuration
       new_configuration = GroupMe::Configuration.new
       GroupMe.configuration = new_configuration
 
+      expect(GroupMe.configuration).not_to eq(old_configuration)
       expect(GroupMe.configuration).to eq(new_configuration)
     end
   end
