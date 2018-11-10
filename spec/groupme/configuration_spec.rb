@@ -50,8 +50,6 @@ RSpec.describe GroupMe::Configuration do
   end
 
   describe '#access_token' do
-    let(:access_token) { SecureRandom.base64(30) }
-
     context 'when access_token is not configured' do
       it 'should return nil' do
         expect(GroupMe.configuration.access_token).to eq(nil)
