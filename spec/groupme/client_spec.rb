@@ -25,7 +25,7 @@ RSpec.describe GroupMe::Client do
   include_context :with_default_groupme_configuration
 
   let(:client) { GroupMe::Client.new(access_token: access_token) }
-  let(:base_url) { 'https://api.groupme.com/v3/' }
+  let(:base_url) { GroupMe::Client::API_BASE_URL }
 
   describe '.new' do
     context 'when :access_token is not set' do
