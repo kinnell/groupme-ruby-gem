@@ -18,6 +18,12 @@ module GroupMe
   end
 
   class Configuration
-    attr_accessor :access_token
+    attr_writer :access_token
+
+    def access_token
+      raise MissingConfigurationError unless @access_token
+
+      @access_token
+    end
   end
 end
