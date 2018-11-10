@@ -4,6 +4,7 @@ require 'httpclient'
 require 'json'
 
 require 'groupme/client'
+require 'groupme/configuration'
 require 'groupme/version'
 
 module GroupMe
