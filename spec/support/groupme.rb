@@ -3,9 +3,8 @@
 require 'securerandom'
 
 RSpec.shared_context :with_defined_access_token do
-  let(:access_token) do
-    ENV['GROUPME_ACCESS_TOKEN'] || SecureRandom.base64(30).tr('+', '0')
-  end
+  let(:access_token)     { ENV['GROUPME_ACCESS_TOKEN'] || SecureRandom.base64(30).tr('+', '0') }
+  let(:new_access_token) { SecureRandom.base64(30).tr('+', '0') }
 end
 
 RSpec.shared_context :with_default_groupme_configuration do

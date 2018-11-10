@@ -1,26 +1,36 @@
 # frozen_string_literal: true
 
 RSpec.describe GroupMe::Client do
-  let(:client) { GroupMe::Client.new(access_token: ACCESS_TOKEN) }
+  include_context :with_default_groupme_configuration
+
+  let(:client) { GroupMe::Client.new(access_token: access_token) }
   let(:base_url) { 'https://api.groupme.com/v3/' }
 
   describe '.new' do
-    context 'when :access_token argument is missing' do
-      it 'should raise an error' do
-        expect { GroupMe::Client.new }.to raise_error(ArgumentError)
+    context 'when :access_token is not set' do
+      let(:client) { GroupMe::Client.new }
+
+      it 'should use Configuration access_token' do
+        expect(client.access_token).to eq(GroupMe.configuration.access_token)
       end
     end
 
     context 'when :access_token is set' do
-      it 'should not raise an error' do
-        expect { GroupMe::Client.new(access_token: ACCESS_TOKEN) }.not_to raise_error
+      let(:client) { GroupMe::Client.new(access_token: new_access_token) }
+
+      it 'should not use Configuration access_token' do
+        expect(client.access_token).not_to eq(GroupMe.configuration.access_token)
+      end
+
+      it 'should use access_token argument value' do
+        expect(client.access_token).to eq(new_access_token)
       end
     end
   end
 
   describe '#request' do
-    let(:stubbed_data) { { id: 1, name: 'Group' } }
-    let(:stubbed_response_body) { { response: stubbed_data }.to_json }
+    let(:stubbed_data)            { { id: 1, name: 'Group' } }
+    let(:stubbed_response_body)   { { response: stubbed_data }.to_json }
     let(:stubbed_response_status) { 200 }
 
     before do
@@ -34,7 +44,7 @@ RSpec.describe GroupMe::Client do
       it 'should send the correct HTTP request' do
         client.request(:get, 'groups')
 
-        expect(WebMock).to have_requested(:get, "#{base_url}groups").with(query: { token: ACCESS_TOKEN })
+        expect(WebMock).to have_requested(:get, "#{base_url}groups").with(query: { token: access_token })
       end
     end
 
@@ -42,7 +52,7 @@ RSpec.describe GroupMe::Client do
       it 'should send the correct HTTP request' do
         client.request(:get, 'groups', query: { per_page: 1 })
 
-        expect(WebMock).to have_requested(:get, "#{base_url}groups").with(query: { token: ACCESS_TOKEN, per_page: 1 })
+        expect(WebMock).to have_requested(:get, "#{base_url}groups").with(query: { token: access_token, per_page: 1 })
       end
     end
 
@@ -50,7 +60,7 @@ RSpec.describe GroupMe::Client do
       it 'should send the correct HTTP request' do
         client.request(:post, 'groups', body: { name: 'Group' })
 
-        expect(WebMock).to have_requested(:post, "#{base_url}groups?token=#{ACCESS_TOKEN}").with(body: { name: 'Group' }.to_json)
+        expect(WebMock).to have_requested(:post, "#{base_url}groups?token=#{access_token}").with(body: { name: 'Group' }.to_json)
       end
     end
 
