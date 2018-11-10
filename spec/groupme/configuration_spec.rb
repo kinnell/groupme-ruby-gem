@@ -3,6 +3,24 @@
 require 'spec_helper'
 
 RSpec.describe GroupMe::Configuration do
+  describe '#access_token' do
+    context 'when access_token is not configured' do
+      it 'should raise an error' do
+        expect { GroupMe.configuration.access_token }.to raise_error(GroupMe::MissingConfigurationError)
+      end
+    end
+
+    context 'when access_token is configured' do
+      include_context :with_default_groupme_configuration
+
+      it 'should return the access_token' do
+        expect(GroupMe.configuration.access_token).to eq(access_token)
+      end
+    end
+  end
+end
+
+RSpec.describe GroupMe do
   describe '.configuration' do
     context 'when configuration is not set' do
       it 'should return a Configuration object' do
@@ -42,22 +60,6 @@ RSpec.describe GroupMe::Configuration do
       GroupMe.reset!
 
       expect(GroupMe.configuration).not_to eq(old_configuration)
-    end
-  end
-
-  describe '#access_token' do
-    context 'when access_token is not configured' do
-      it 'should raise an error' do
-        expect { GroupMe.configuration.access_token }.to raise_error(GroupMe::MissingConfigurationError)
-      end
-    end
-
-    context 'when access_token is configured' do
-      include_context :with_default_groupme_configuration
-
-      it 'should return the access_token' do
-        expect(GroupMe.configuration.access_token).to eq(access_token)
-      end
     end
   end
 end
