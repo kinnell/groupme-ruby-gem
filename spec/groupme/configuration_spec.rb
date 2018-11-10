@@ -11,9 +11,7 @@ RSpec.describe GroupMe::Configuration do
     end
 
     context 'when configuration is set' do
-      before do
-        GroupMe.configure { |config| config.access_token = 'ACCESS_TOKEN' }
-      end
+      include_context :with_default_groupme_configuration
 
       it 'should return a Configuration object' do
         expect(GroupMe.configuration).to be_an_instance_of(GroupMe::Configuration)
@@ -31,8 +29,6 @@ RSpec.describe GroupMe::Configuration do
   end
 
   describe 'configure' do
-    let(:access_token) { SecureRandom.base64(30) }
-
     it 'should set configuration attributes' do
       GroupMe.configure { |config| config.access_token = access_token }
 
@@ -51,15 +47,13 @@ RSpec.describe GroupMe::Configuration do
 
   describe '#access_token' do
     context 'when access_token is not configured' do
-      it 'should return nil' do
-        expect(GroupMe.configuration.access_token).to eq(nil)
+      it 'should raise an error' do
+        expect { GroupMe.configuration.access_token }.to raise_error(GroupMe::MissingConfigurationError)
       end
     end
 
     context 'when access_token is configured' do
-      before do
-        GroupMe.configure { |config| config.access_token = access_token }
-      end
+      include_context :with_default_groupme_configuration
 
       it 'should return the access_token' do
         expect(GroupMe.configuration.access_token).to eq(access_token)
