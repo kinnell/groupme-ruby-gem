@@ -6,6 +6,7 @@ require 'json'
 require 'groupme/client'
 require 'groupme/configuration'
 require 'groupme/errors'
+require 'groupme/group'
 require 'groupme/version'
 
 module GroupMe
