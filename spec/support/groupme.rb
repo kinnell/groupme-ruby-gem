@@ -3,14 +3,14 @@
 require 'securerandom'
 
 RSpec.shared_context :with_defined_access_token do
-  let(:access_token)     { ENV['GROUPME_ACCESS_TOKEN'] || SecureRandom.base64(30).tr('+', '0') }
+  let(:access_token)     { 'cQOvtsbxn7mHCS6yRimKuKHwXCGtqRwcU4E4NToe' }
   let(:new_access_token) { SecureRandom.base64(30).tr('+', '0') }
 end
 
 RSpec.shared_context :with_default_groupme_configuration do
-  before do
+  before(:each) do
     GroupMe.configure do |config|
-      config.access_token = access_token
+      config.access_token = 'cQOvtsbxn7mHCS6yRimKuKHwXCGtqRwcU4E4NToe'
     end
   end
 end

@@ -10,4 +10,7 @@ require 'groupme/group'
 require 'groupme/version'
 
 module GroupMe
+  def self.reset!
+    @configuration = Configuration.new
+  end
 end

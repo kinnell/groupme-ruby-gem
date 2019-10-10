@@ -12,8 +12,8 @@ module GroupMe
       @client = HTTPClient.new(base_url: API_BASE_URL, default_header: API_DEFAULT_HEADER)
     end
 
-    def request(method, path, query: {}, body: {})
-      response = @client.request(method, path, { token: @access_token }.merge(query), body.to_json)
+    def request(method, path, query: {}, body: nil)
+      response = @client.request(method, path, { token: @access_token }.merge(query), body&.to_json)
       [parse_response_body(response), response.status]
     end
 

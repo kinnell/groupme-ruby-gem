@@ -2,12 +2,18 @@
 
 module GroupMe
   class Configuration
-    attr_writer :access_token
+    API_MAX_GROUPS_PER_PAGE = 500
+
+    attr_writer :access_token, :groups_per_page
 
     def access_token
       raise MissingConfigurationError unless @access_token
 
       @access_token
+    end
+
+    def groups_per_page
+      @groups_per_page || API_MAX_GROUPS_PER_PAGE
     end
   end
 
@@ -21,9 +27,5 @@ module GroupMe
 
   def self.configure
     yield(configuration)
-  end
-
-  def self.reset!
-    @configuration = Configuration.new
   end
 end
