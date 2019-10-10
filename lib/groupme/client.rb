@@ -34,7 +34,13 @@ module GroupMe
     def parse_response_body(response)
       return response.reason unless response.ok?
 
-      JSON.parse(response.body, symbolize_names: true).fetch(:response)
+      unless blank?(response.body)
+        JSON.parse(response.body, symbolize_names: true).fetch(:response)
+      end
+    end
+
+    def blank?(string)
+      string =~ /\A[[:space:]]*\z/
     end
   end
 
