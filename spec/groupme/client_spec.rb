@@ -184,7 +184,7 @@ RSpec.describe GroupMe do
   describe '.client=' do
     it 'should set a new default client' do
       old_client = GroupMe.client
-      new_client = GroupMe::Client.new(access_token: new_access_token)
+      new_client = GroupMe::Client.new
       GroupMe.client = new_client
 
       expect(GroupMe.client).not_to eq(old_client)
