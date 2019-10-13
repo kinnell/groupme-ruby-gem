@@ -10,7 +10,7 @@ RSpec.describe GroupMe::ImageClient do
       _image_client = GroupMe::ImageClient.new
       _image_client.upload(image_blob)
 
-      expect(WebMock).to have_requested(:post, 'https://image.groupme.com/pictures').with(body: image_blob.to_json)
+      expect(WebMock).to have_requested(:post, 'https://image.groupme.com/pictures').with(body: image_blob)
     end
   end
 end

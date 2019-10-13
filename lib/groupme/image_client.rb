@@ -11,8 +11,8 @@ module GroupMe
       @client = HTTPClient.new(base_url: API_BASE_URL, default_header: { 'X-Access-Token': @access_token, 'Content-Type': 'image/jpeg' })
     end
 
-    def upload(body = {})
-      response = @client.post('pictures', body&.to_json)\
+    def upload(image_blob)
+      response = @client.post('pictures', image_blob)
 
       return response.reason unless response.ok?
 
