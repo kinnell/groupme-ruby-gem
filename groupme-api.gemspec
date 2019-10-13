@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.name         = 'groupme-api'
   spec.version      = GroupMe::VERSION
   spec.summary      = 'A Ruby wrapper for GroupMe REST API (v3)'
+  spec.license      = 'MIT'
 
   spec.author       = 'Kinnell Shah'
   spec.email        = 'kinnell@gmail.com'
