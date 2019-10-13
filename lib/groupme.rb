@@ -7,6 +7,7 @@ require 'groupme/client'
 require 'groupme/configuration'
 require 'groupme/errors'
 require 'groupme/group'
+require 'groupme/image_client'
 require 'groupme/version'
 
 module GroupMe
