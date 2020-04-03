@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
 
   spec.files        = `git ls-files`.split("\n")
   spec.require_path = 'lib'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
+  spec.required_ruby_version  = Gem::Requirement.new('>= 2.5.0')
 
   spec.add_dependency 'httpclient', '~> 2.8'
 
