@@ -8,9 +8,8 @@ Coveralls.wear!
 
 require 'groupme'
 
-require 'support/groupme'
-require 'support/vcr'
-require 'support/webmock'
+SPEC_PATH = Pathname.getwd.join('spec').freeze
+SPEC_PATH.glob('support/**/*.rb').each { |file| require file }
 
 RSpec.configure do |config|
   config.filter_run_when_matching :focus
