@@ -1,11 +1,17 @@
-/.bundle/
-/.yardoc
-/_yardoc/
-/coverage/
-/doc/
-/pkg/
-/spec/reports/
-/tmp/
+*.DS_Store
+*.gem
 
-# rspec failure tracking
-.rspec_status
+/.bundle
+/.yardoc
+/.idea
+
+/pkg
+/log
+/tmp
+/doc
+/rdoc
+/coverage
+
+.env
+.config
+.byebug_history
