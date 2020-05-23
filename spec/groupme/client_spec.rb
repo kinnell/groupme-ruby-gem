@@ -6,7 +6,7 @@ RSpec.describe GroupMe::Client do
   let(:client) { GroupMe::Client.new(access_token: access_token) }
   let(:base_url) { GroupMe::Client::API_BASE_URL }
 
-  describe '.new' do
+  describe '#new' do
     context 'when :access_token is not supplied' do
       let(:client) { GroupMe::Client.new }
 

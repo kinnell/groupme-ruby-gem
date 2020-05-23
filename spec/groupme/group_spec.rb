@@ -3,7 +3,7 @@
 RSpec.describe GroupMe::Group do
   include_context :with_default_groupme_configuration
 
-  describe '#all' do
+  describe '.all' do
     it 'should send the correct HTTP request' do
       _groups = GroupMe::Group.all
 
