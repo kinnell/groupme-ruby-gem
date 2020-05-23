@@ -12,7 +12,4 @@ require_relative 'groupme/image_client'
 require_relative 'groupme/version'
 
 module GroupMe
-  def self.reset!
-    @configuration = Configuration.new
-  end
 end

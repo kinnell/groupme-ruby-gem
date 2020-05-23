@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe GroupMe::Configuration do
-  before(:each) { GroupMe.reset! }
+  before(:each) { GroupMe.reset_configuration! }
 
   describe '#access_token' do
     context 'when :access_token is not configured' do
@@ -46,10 +46,10 @@ RSpec.describe GroupMe do
     end
   end
 
-  describe 'reset!' do
+  describe 'reset_configuration!' do
     it 'should reset the configuration' do
       old_configuration = GroupMe.configuration
-      GroupMe.reset!
+      GroupMe.reset_configuration!
 
       expect(GroupMe.configuration).not_to eq(old_configuration)
     end
