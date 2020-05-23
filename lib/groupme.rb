@@ -4,6 +4,7 @@ require 'httpclient'
 require 'json'
 require 'pathname'
 
+require_relative 'groupme/core'
 require_relative 'groupme/client'
 require_relative 'groupme/configuration'
 require_relative 'groupme/errors'
