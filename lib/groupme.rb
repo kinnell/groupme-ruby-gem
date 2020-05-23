@@ -2,13 +2,14 @@
 
 require 'httpclient'
 require 'json'
+require 'pathname'
 
-require 'groupme/client'
-require 'groupme/configuration'
-require 'groupme/errors'
-require 'groupme/group'
-require 'groupme/image_client'
-require 'groupme/version'
+require_relative 'groupme/client'
+require_relative 'groupme/configuration'
+require_relative 'groupme/errors'
+require_relative 'groupme/group'
+require_relative 'groupme/image_client'
+require_relative 'groupme/version'
 
 module GroupMe
   def self.reset!
