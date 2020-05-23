@@ -1,6 +1,7 @@
 # GroupMe Ruby Gem (BETA)
 [![Build Status](https://travis-ci.org/kinnell/groupme-ruby-gem.svg?branch=master)](https://travis-ci.org/kinnell/groupme-ruby-gem)
 [![Coverage Status](https://coveralls.io/repos/github/kinnell/groupme-ruby-gem/badge.svg?branch=master)](https://coveralls.io/github/kinnell/groupme-ruby-gem?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/kinnell/groupme-ruby-gem/badge.svg?targetFile=Gemfile.lock)](https://snyk.io/test/github/kinnell/groupme-ruby-gem?targetFile=Gemfile.lock)
 
 A Ruby wrapper for [GroupMe REST API (v3)](https://dev.groupme.com/docs/v3).
 
