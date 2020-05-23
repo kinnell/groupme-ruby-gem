@@ -12,11 +12,6 @@ module GroupMe
       @client = HTTPClient.new(base_url: API_BASE_URL, default_header: API_DEFAULT_HEADER)
     end
 
-    def request(method, path, query: {}, body: nil)
-      response = @client.request(method, path, { token: @access_token }.merge(query), body&.to_json)
-      [parse_response_body(response), response.status]
-    end
-
     def get(path, query = {})
       request(:get, path, query: query)
     end
@@ -27,6 +22,11 @@ module GroupMe
 
     def delete(path, query = {})
       request(:delete, path, query: query)
+    end
+
+    def request(method, path, query: {}, body: nil)
+      response = @client.request(method, path, { token: @access_token }.merge(query), body&.to_json)
+      [parse_response_body(response), response.status]
     end
 
     private
@@ -44,11 +44,11 @@ module GroupMe
     end
   end
 
-  def self.client
-    @client ||= Client.new
-  end
-
   def self.client=(client)
     @client = client
+  end
+
+  def self.client
+    @client ||= Client.new
   end
 end
