@@ -33,10 +33,9 @@ module GroupMe
 
     def parse_response_body(response)
       return response.reason unless response.ok?
+      return if blank?(response.body)
 
-      unless blank?(response.body)
-        JSON.parse(response.body, symbolize_names: true).fetch(:response)
-      end
+      JSON.parse(response.body, symbolize_names: true).fetch(:response)
     end
 
     def blank?(string)
