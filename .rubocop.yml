@@ -1,11 +1,60 @@
-Documentation:
+AllCops:
+  TargetRubyVersion: 2.5
+  DisplayCopNames: true
+  NewCops: enable
+
+Layout/HashAlignment:
   Enabled: false
+
+Layout/LineLength:
+  Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
 
 Metrics/BlockLength:
   Enabled: false
 
-Metrics/LineLength:
+Metrics/ModuleLength:
   Enabled: false
 
-Style/BracesAroundHashParameters:
+Naming/FileName:
+  Exclude:
+    - lib/*.rb
+
+Style/Documentation:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - Gemfile
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/PreferredHashMethods:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/WordArray:
   Enabled: false
