@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    groupme-api (0.9.3)
+    groupme-api (0.9.4)
       httpclient (~> 2.8)
 
 GEM
@@ -24,7 +24,6 @@ GEM
     docile (1.4.0)
     ffi (1.15.0)
     formatador (0.2.5)
-    gem-release (2.2.2)
     guard (2.16.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -120,7 +119,6 @@ DEPENDENCIES
   bundler (~> 2.1)
   byebug (~> 11.0)
   coveralls (~> 0.8)
-  gem-release (~> 2.2)
   groupme-api!
   guard (~> 2.16)
   guard-rspec (~> 4.7)
