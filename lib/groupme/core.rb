@@ -2,9 +2,7 @@
 
 module GroupMe
   module Core
-    extend self
-
-    def root
+    def self.root
       Pathname.new(__dir__)
     end
   end
