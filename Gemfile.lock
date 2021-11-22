@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    groupme-api (0.9.4)
+    groupme-api (0.9.5)
       httpclient (~> 2.8)
 
 GEM
