@@ -3,9 +3,6 @@
 require 'simplecov'
 require 'coveralls'
 
-SimpleCov.start
-Coveralls.wear!
-
 require 'groupme'
 
 SPEC_PATH = Pathname.getwd.join('spec').freeze
