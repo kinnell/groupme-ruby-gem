@@ -1,10 +1,13 @@
 AllCops:
-  TargetRubyVersion: 2.7
-  NewCops: enable
+  TargetRubyVersion: 3.1
   DisplayCopNames: true
+  NewCops: enable
   SuggestExtensions: false
 
 Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Layout/ArgumentAlignment:
   Enabled: false
 
 Layout/CaseIndentation:
@@ -13,10 +16,16 @@ Layout/CaseIndentation:
 Layout/EmptyLineBetweenDefs:
   Enabled: false
 
+Layout/EmptyLinesAroundExceptionHandlingKeywords:
+  Enabled: false
+
 Layout/EndAlignment:
   Enabled: false
 
 Layout/ExtraSpacing:
+  Enabled: false
+
+Layout/FirstArrayElementIndentation:
   Enabled: false
 
 Layout/FirstHashElementIndentation:
@@ -28,7 +37,13 @@ Layout/HashAlignment:
 Layout/LineLength:
   Enabled: false
 
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
 Lint/DuplicateBranch:
+  Enabled: false
+
+Lint/MissingCopEnableDirective:
   Enabled: false
 
 Lint/MissingSuper:
@@ -44,6 +59,9 @@ Lint/SymbolConversion:
   EnforcedStyle: consistent
   Exclude:
     - /**/*.rake
+
+Lint/UnusedMethodArgument:
+  Enabled: false
 
 Metrics/AbcSize:
   Enabled: false
@@ -105,6 +123,7 @@ Style/HashEachMethods:
   Enabled: false
 
 Style/HashSyntax:
+  EnforcedShorthandSyntax: never
   Exclude:
     - /**/*.rake
 
@@ -118,12 +137,15 @@ Style/IfUnlessModifier:
   Enabled: false
 
 Style/Lambda:
-  Enabled: false
+  EnforcedStyle: literal
 
 Style/ModuleFunction:
   Enabled: false
 
 Style/NumericLiterals:
+  Enabled: false
+
+Style/NumericPredicate:
   Enabled: false
 
 Style/PreferredHashMethods:
@@ -133,6 +155,9 @@ Style/RedundantFreeze:
   Enabled: false
 
 Style/RegexpLiteral:
+  Enabled: false
+
+Style/RescueModifier:
   Enabled: false
 
 Style/SingleArgumentDig:
@@ -152,6 +177,9 @@ Style/TrailingCommaInArrayLiteral:
 
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
+
+Style/TrivialAccessors:
+  Enabled: false
 
 Style/WordArray:
   Enabled: false
