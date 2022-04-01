@@ -14,15 +14,22 @@ Gem::Specification.new do |spec|
   spec.homepage     = 'https://github.com/kinnell/groupme-ruby-gem'
   spec.license      = 'MIT'
 
-  spec.files = Dir['lib/**/*', 'Gemfile', '*.md']
-  spec.require_path = 'lib'
+  spec.metadata['github_repo']           = 'ssh://github.com/kinnell/groupme-ruby-gem'
+  spec.metadata['rubygems_mfa_required'] = 'true'
+
+  spec.files = Dir[
+    'lib/**/*',
+    'Gemfile',
+    '*.md',
+  ]
+
+  spec.require_paths = ['lib']
   spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
   spec.required_rubygems_version = Gem::Requirement.new('>= 2.0')
 
   spec.add_dependency 'httpclient', '~> 2.8'
 
   spec.add_development_dependency 'bundler',        '~> 2.1'
-  spec.add_development_dependency 'byebug',         '~> 11.0'
   spec.add_development_dependency 'coveralls',      '~> 0.8'
   spec.add_development_dependency 'guard',          '~> 2.16'
   spec.add_development_dependency 'guard-rspec',    '~> 4.7'
