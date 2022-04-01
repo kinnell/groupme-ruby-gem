@@ -42,10 +42,17 @@ response, status = client.get('groups')
 puts response
 ```
 
-
 #### Create A Group
 
 ```ruby
 response, status = client.post('groups', name: 'New Group')
 puts response
 ```
+
+## Deployment
+1. Update `lib/groupme/version.rb` & run `bundle update`
+2. Commit files ("Bump version to <VERSION>")
+3. Run `rake build`
+4. Run `rake release`
+5. Run `gem push pkg/groupme-api-<VERSION>.gem` and enter MFA OTP code
+6. Run `gem push --key github --host https://rubygems.pkg.github.com/kinnell pkg/groupme-api-<VERSION>.gem` for GitHub Packages
