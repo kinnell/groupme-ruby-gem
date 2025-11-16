@@ -56,4 +56,4 @@ puts response
 2. `bundle update`
 3. Commit files ("Bump version to <VERSION>")
 4. `rake build`
-5. `rake release`
+5. `GEM_HOST_API_KEY=<YOUR_GEM_HOST_API_KEY> rake release`
