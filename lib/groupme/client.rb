@@ -39,7 +39,7 @@ module GroupMe
     end
 
     def blank?(string)
-      string =~ /\A[[:space:]]*\z/
+      string =~ %r{\A[[:space:]]*\z}
     end
   end
 

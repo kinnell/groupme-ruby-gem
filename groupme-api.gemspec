@@ -20,23 +20,12 @@ Gem::Specification.new do |spec|
   spec.files = Dir[
     'lib/**/*',
     'Gemfile',
-    '*.md',
+    '*.md'
   ]
 
   spec.require_paths = ['lib']
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
-  spec.required_rubygems_version = Gem::Requirement.new('>= 2.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 3.1.0')
+  spec.required_rubygems_version = Gem::Requirement.new('>= 3.0')
 
   spec.add_dependency 'httpclient', '~> 2.8'
-
-  spec.add_development_dependency 'bundler',        '~> 2.1'
-  spec.add_development_dependency 'coveralls',      '~> 0.8'
-  spec.add_development_dependency 'guard',          '~> 2.16'
-  spec.add_development_dependency 'guard-rspec',    '~> 4.7'
-  spec.add_development_dependency 'guard-rubocop',  '~> 1.0'
-  spec.add_development_dependency 'rake',           '~> 13.0'
-  spec.add_development_dependency 'rspec',          '~> 3.9'
-  spec.add_development_dependency 'simplecov',      '~> 0.16'
-  spec.add_development_dependency 'vcr',            '~> 5.0'
-  spec.add_development_dependency 'webmock',        '~> 3.8'
 end

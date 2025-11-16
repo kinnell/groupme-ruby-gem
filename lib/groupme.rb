@@ -13,4 +13,5 @@ require_relative 'groupme/image_client'
 require_relative 'groupme/version'
 
 module GroupMe
+  extend Core
 end

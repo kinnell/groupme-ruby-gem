@@ -1,4 +1,5 @@
 # GroupMe Ruby Gem (BETA)
+
 [![Build Status](https://travis-ci.org/kinnell/groupme-ruby-gem.svg?branch=master)](https://travis-ci.org/kinnell/groupme-ruby-gem)
 [![Coverage Status](https://coveralls.io/repos/github/kinnell/groupme-ruby-gem/badge.svg?branch=master)](https://coveralls.io/github/kinnell/groupme-ruby-gem?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/kinnell/groupme-ruby-gem/badge.svg?targetFile=Gemfile.lock)](https://snyk.io/test/github/kinnell/groupme-ruby-gem?targetFile=Gemfile.lock)
@@ -29,7 +30,7 @@ Get a developer access token at: https://dev.groupme.com/
 require 'groupme'
 
 client = GroupMe::Client.new(
-  access_token: 'ax7snqkoRiJ0yGPsbKSgeBnBEtqeSkALMC2qJPrT'
+  access_token: '<YOUR_ACCESS_TOKEN>'
 )
 ```
 
@@ -50,6 +51,7 @@ puts response
 ```
 
 ## Deployment
+
 1. Update `lib/groupme/version.rb` & run `bundle update`
 2. Commit files ("Bump version to <VERSION>")
 3. Run `rake build`
