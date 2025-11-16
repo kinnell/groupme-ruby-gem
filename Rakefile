@@ -18,11 +18,3 @@ desc 'Enter Guard session'
 task :guard do
   exec 'bundle exec guard'
 end
-
-Rake::Task['release'].enhance do
-  require_relative 'lib/groupme/version'
-  version = GroupMe::VERSION
-  gem_file = "pkg/groupme-api-#{version}.gem"
-
-  sh "gem push --key github --host https://rubygems.pkg.github.com/kinnell #{gem_file}"
-end
